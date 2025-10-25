@@ -1,17 +1,19 @@
-# Stage 1: Build
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+﻿FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /app
 
-# Copy csproj and restore
-COPY *.csproj .
+COPY TeleSend.WebAPI.sln ./
+COPY src/TeleSend.WebAPI/*.csproj ./TeleSend.WebAPI/
+
 RUN dotnet restore
 
-# Copy the rest and build
-COPY . .
-RUN dotnet publish -c Release -o out
+COPY . ./
 
-# Stage 2: Run
-FROM mcr.microsoft.com/dotnet/aspnet:9.0
+WORKDIR /app/src/TeleSend.WebAPI
+RUN dotnet publish -c Release -o /app/out
+
+ FROM mcr.microsoft.com/dotnet/aspnet:9.0
 WORKDIR /app
-COPY --from=build /app/out .
+
+ COPY --from=build /app/out .
+
 ENTRYPOINT ["dotnet", "TeleSend.WebAPI.dll"]
