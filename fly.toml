@@ -1,0 +1,18 @@
+# fly.toml file for TeleSend WebAPI
+
+app = "telesend-webapi"   
+
+ 
+[build]
+  dockerfile = "src/TeleSend.WebAPI/Dockerfile"
+
+ 
+[env]
+  DOTNET_ENVIRONMENT = "Production"
+
+[experimental]
+  allowed_public_ports = [8080]
+  auto_rollback = true
+
+[deploy]
+  strategy = "rolling"
