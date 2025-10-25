@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\TeleSend.WebAPI.props" />
-</Project>
