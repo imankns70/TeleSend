@@ -1,0 +1,10 @@
+﻿services:
+- type: web
+name: telesend-api
+env: dotnet
+plan: free
+buildCommand: dotnet publish -c Release -o out
+startCommand: dotnet out/TeleSend.WebAPI.dll
+envVars:
+- key: ASPNETCORE_URLS
+value: http://+:10000
