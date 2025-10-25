@@ -2,7 +2,7 @@
 {
     public class TelegramMessage
     {
-        public long MessageId { get; set; }
+        public int MessageId { get; set; }
         public TelegramUser From { get; set; }
         public long ChatId { get; set; } // شناسه گروه
         public string Text { get; set; }

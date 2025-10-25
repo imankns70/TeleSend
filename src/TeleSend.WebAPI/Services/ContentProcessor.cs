@@ -1,6 +1,5 @@
 ﻿using Telegram.Bot;
 using Telegram.Bot.Types;
-using Telegram.Bot.Types.Enums;
 using TeleSend.WebAPI.Models;
 
 namespace TeleSend.WebAPI.Services
@@ -18,6 +17,7 @@ namespace TeleSend.WebAPI.Services
 
         public async Task HandleUpdateAsync(Update update)
         {
+
             if (update?.Message == null) return;
 
             TelegramUpdate telegramUpdate = ConvertToInternalUpdate(update);
@@ -30,11 +30,11 @@ namespace TeleSend.WebAPI.Services
             // ارسال متن
             if (!string.IsNullOrEmpty(telegramUpdate.Message.Text))
             {
-                await _botClient.SendMessage(
-                    chatId: targetChannelId,
-                    text: telegramUpdate.Message.Text,
-                    parseMode: ParseMode.Html
-                );
+                await _botClient.ForwardMessage(
+                       chatId: targetChannelId,
+                       fromChatId: chatId,
+                       messageId: telegramUpdate.Message.MessageId
+                   );
             }
 
             // ارسال عکس

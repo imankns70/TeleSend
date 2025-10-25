@@ -33,3 +33,4 @@ C:\Projects\TeleSend\src\TeleSend.WebAPI\obj\Debug\net9.0\TeleSend.WebAPI.pdb
 C:\Projects\TeleSend\src\TeleSend.WebAPI\obj\Debug\net9.0\TeleSend.WebAPI.genruntimeconfig.cache
 C:\Projects\TeleSend\src\TeleSend.WebAPI\obj\Debug\net9.0\ref\TeleSend.WebAPI.dll
 C:\Projects\TeleSend\src\TeleSend.WebAPI\bin\Debug\net9.0\Telegram.Bot.dll
+C:\Projects\TeleSend\src\TeleSend.WebAPI\obj\Debug\net9.0\TeleSend.WebAPI.sourcelink.json
