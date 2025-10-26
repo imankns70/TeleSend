@@ -35,5 +35,9 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+if (app.Environment.IsProduction())
+{
+    app.Urls.Add("http://0.0.0.0:5000");
 
+}
 app.Run();
